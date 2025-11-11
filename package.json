@@ -1,20 +1,25 @@
 {
-  
   "name": "self-paced-test-practice",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "build": "nuxt build",
     "test": "vitest",
     "test:watch": "vitest --watch",
     "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "test:coverage": "vitest --coverage",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "nuxt": "^4.2.1",
+    "prettier": "^3.6.2"
   }
 }

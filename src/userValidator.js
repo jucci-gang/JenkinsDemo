@@ -5,7 +5,7 @@
  */
 export function validateEmail(email) {
   if (!email) return false;
-  
+
   // Basic email regex pattern
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(email);
@@ -20,25 +20,25 @@ export function validateUsername(username) {
   const errors = [];
 
   // Check if username exists
-  if (!username || username.trim() === '') {
-    errors.push('Username is required');
+  if (!username || username.trim() === "") {
+    errors.push("Username is required");
     return errors;
   }
 
   // Check length (3-20 characters)
   if (username.length < 3 || username.length > 20) {
-    errors.push('Username must be 3-20 characters');
+    errors.push("Username must be 3-20 characters");
   }
 
   // Check if contains only letters, numbers, and underscore
   const validCharsRegex = /^[a-zA-Z0-9_]+$/;
   if (!validCharsRegex.test(username)) {
-    errors.push('Username can only contain letters, numbers, and underscore');
+    errors.push("Username can only contain letters, numbers, and underscore");
   }
 
   // Check if starts with a number
   if (/^[0-9]/.test(username)) {
-    errors.push('Username cannot start with a number');
+    errors.push("Username cannot start with a number");
   }
 
   return errors;
@@ -52,13 +52,13 @@ export function validateUsername(username) {
 export function validateEmailField(email) {
   const errors = [];
 
-  if (!email || email.trim() === '') {
-    errors.push('Email is required');
+  if (!email || email.trim() === "") {
+    errors.push("Email is required");
     return errors;
   }
 
   if (!validateEmail(email)) {
-    errors.push('Invalid email format');
+    errors.push("Invalid email format");
   }
 
   return errors;
@@ -73,29 +73,29 @@ export function validatePassword(password) {
   const errors = [];
 
   // Check if password exists
-  if (!password || password === '') {
-    errors.push('Password is required');
+  if (!password || password === "") {
+    errors.push("Password is required");
     return errors;
   }
 
   // Check minimum length (8 characters)
   if (password.length < 8) {
-    errors.push('Password must be at least 8 characters');
+    errors.push("Password must be at least 8 characters");
   }
 
   // Check for at least one uppercase letter
   if (!/[A-Z]/.test(password)) {
-    errors.push('Password must contain uppercase letter');
+    errors.push("Password must contain uppercase letter");
   }
 
   // Check for at least one number
   if (!/[0-9]/.test(password)) {
-    errors.push('Password must contain number');
+    errors.push("Password must contain number");
   }
 
   // Check for at least one special character (!@#$%^&*)
   if (!/[!@#$%^&*]/.test(password)) {
-    errors.push('Password must contain special character');
+    errors.push("Password must contain special character");
   }
 
   return errors;
@@ -110,20 +110,20 @@ export function validateAge(age) {
   const errors = [];
 
   // Check if age exists (including 0 as valid)
-  if (age === null || age === undefined || age === '') {
-    errors.push('Age is required');
+  if (age === null || age === undefined || age === "") {
+    errors.push("Age is required");
     return errors;
   }
 
   // Check if age is a number
-  if (typeof age !== 'number' || isNaN(age)) {
-    errors.push('Age must be a number');
+  if (typeof age !== "number" || isNaN(age)) {
+    errors.push("Age must be a number");
     return errors;
   }
 
   // Check if user is 18 or older
   if (age < 18) {
-    errors.push('Must be 18 or older');
+    errors.push("Must be 18 or older");
   }
 
   return errors;
@@ -155,6 +155,6 @@ export function validateRegistration(userData) {
 
   return {
     isValid: errors.length === 0,
-    errors
+    errors,
   };
 }
